@@ -157,8 +157,8 @@ class createreassessmentgrouptables extends \core\task\scheduled_task {
             if (!(in_array($group, $groupstored))) {
                 $groupstored[] = $group;
                 // Sql query for inserting reassessment group into table in the integrations database.
-                $sql = "INSERT INTO " . $grouptab . " (group_name, context_level, active)
-                        VALUES ('" . $group['assessment_idcode'] . "','" . "50" . "','" ."1" . "')";
+                $sql = "INSERT INTO " . $grouptab . " (group_id, group_name, context_level, active)
+                        VALUES ('" . $group['assessment_idcode'] . "','" . $group['assessment_idcode'] . "','" . "50" . "','" ."1" . "')";
                 $extdb->Execute($sql);
             }
         }
